@@ -22,6 +22,5 @@ public class Tree : Attackable
     public override void Attack()
     {
         hp -= 1;
-        Debug.Log(hp);
     }
 }

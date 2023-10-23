@@ -1844,10 +1844,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1640582702}
-  - component: {fileID: 1640582701}
   - component: {fileID: 1640582700}
   m_Layer: 0
-  m_Name: Data Handler
+  m_Name: Save Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1868,18 +1867,6 @@ MonoBehaviour:
   gameData:
     days: 0
     money: 0
---- !u!114 &1640582701
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640582699}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2bceb03183e9295409d80986dd01dd42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1640582702
 Transform:
   m_ObjectHideFlags: 0

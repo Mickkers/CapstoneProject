@@ -64,7 +64,6 @@ public class Player : MonoBehaviour
             if (hit.transform.GetComponent<Attackable>())
             {
                 hit.transform.GetComponent<Attackable>().Attack();
-                Debug.Log("Attack");
             }
         }
     }

@@ -7,11 +7,18 @@ using UnityEngine;
 
 public class SaveManager : MonoBehaviour
 {
+    public static SaveManager Instance;
+
     public GameData gameData;
     private string Path => Application.persistentDataPath + "/save.dat";
 
     private void Start()
     {
+        if(SaveManager.Instance is null)
+        {
+            return;
+        }
+
         if (File.Exists(Path))
         {
             LoadBinary();
@@ -21,7 +28,18 @@ public class SaveManager : MonoBehaviour
             gameData = new GameData();
             SaveBinary();
         }
+    }
 
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
     }
 
     public GameData GetGameData()
