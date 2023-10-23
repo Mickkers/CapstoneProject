@@ -5,7 +5,7 @@ using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
 
-public class DataManager : MonoBehaviour
+public class SaveManager : MonoBehaviour
 {
     public GameData gameData;
     private string Path => Application.persistentDataPath + "/save.dat";
@@ -24,9 +24,14 @@ public class DataManager : MonoBehaviour
 
     }
 
+    public GameData GetGameData()
+    {
+        return gameData;
+    }
+
     public bool SaveExists()
     {
-        if (File.Exists(Path))
+        if (gameData.days > 0)
         {
             return true;
         }
@@ -34,6 +39,12 @@ public class DataManager : MonoBehaviour
         {
             return false;
         }
+    }
+
+    public void CreateNewSave()
+    {
+        gameData = new GameData();
+        SaveBinary();
     }
 
     public void SaveBinary()
