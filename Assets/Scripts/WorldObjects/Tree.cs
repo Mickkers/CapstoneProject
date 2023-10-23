@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerInteractionTrigger : MonoBehaviour
+public class Tree : Attackable
 {
+    [SerializeField] private float hp;
+    [SerializeField] private EnumTools correctTool;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,11 @@ public class PlayerInteractionTrigger : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public override void Attack()
+    {
+        hp -= 1;
+        Debug.Log(hp);
     }
 }

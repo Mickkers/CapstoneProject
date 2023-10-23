@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,9 +9,10 @@ public class Player : MonoBehaviour
     private Vector2 moveDirection;
     private Rigidbody2D rbody;
     private int currDirection;
+    private EnumTools currTool;
 
     [SerializeField] private float moveSpeed;
-    [SerializeField] private GameObject interactionTrigger;
+    [SerializeField] private Vector2 actionRange;
 
     // Start is called before the first frame update
     void Start()
@@ -21,41 +23,76 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        
     }
 
     private void FixedUpdate()
     {
         rbody.velocity = moveSpeed * moveDirection;
+    }
 
+    private void CheckInteractions()
+    {
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, actionRange, 0, Vector2.zero);
+
+        if(hits.Length < 1)
+        {
+            return;
+        }
+
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.transform.GetComponent<Interactible>())
+            {
+                hit.transform.GetComponent<Interactible>().Interact();
+                return;
+            }
+        }
+    }
+
+    private void CheckAttacks()
+    {
+        RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, actionRange, 0, Vector2.zero);
+
+        if (hits.Length < 1)
+        {
+            return;
+        }
+
+        foreach (RaycastHit2D hit in hits)
+        {
+            if (hit.transform.GetComponent<Attackable>())
+            {
+                hit.transform.GetComponent<Attackable>().Attack();
+                Debug.Log("Attack");
+            }
+        }
     }
 
     private void SetDirection(int mainComponent)
     {
         if(mainComponent > 0)
         {
-            interactionTrigger.transform.localScale = new Vector2(1, 2);
 
             if(mainComponent == 1)
             {
-                interactionTrigger.transform.localPosition = new Vector2(-1,0);
+                //-x
             }
             else
             {
-                interactionTrigger.transform.localPosition = new Vector2(1,0);
+                //x
             }
         }
         else
         {
-            interactionTrigger.transform.localScale = new Vector2(2, 1);
 
             if (mainComponent == -2)
             {
-                interactionTrigger.transform.localPosition = new Vector2(0,-1);
+                //-y
             }
             else
             {
-                interactionTrigger.transform.localPosition = new Vector2(0,1);
+                //y
             }
         }
     }
@@ -99,10 +136,23 @@ public class Player : MonoBehaviour
     {
         moveDirection = context.ReadValue<Vector2>();
         currDirection = MainComponent(moveDirection);
-        SetDirection(currDirection);
         //Set Sprite Direction
+        SetDirection(currDirection);
+    }
 
+    public void OnAttack(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            CheckAttacks();
+        }
+    }
 
-
+    public void OnInteract(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            CheckInteractions();
+        }
     }
 }
