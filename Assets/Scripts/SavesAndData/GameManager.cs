@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Instance;
+
     [SerializeField ]private GameData currData;
     private int currentTime;
     private int currMin;
@@ -15,6 +17,11 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if (SaveManager.Instance is null)
+        {
+            return;
+        }
+
         currData = FindObjectOfType<SaveManager>().GetGameData();
         currDate = currData.days % 28;
         currMonth = (int)Mathf.Ceil((float)currData.days / 28);
@@ -25,7 +32,24 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    private void Awake()
+    {
+        if (Instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        Instance = this;
+        DontDestroyOnLoad(gameObject);
+    }
+
+    private void EndDay()
+    {
+
     }
 
     private IEnumerator IncrementTime()
@@ -34,8 +58,15 @@ public class GameManager : MonoBehaviour
         {
             yield return new WaitForSeconds(7);
             currentTime++;
-            currHour = (int)Mathf.Floor((float)currentTime / 6);
-            currMin = ((currentTime % 6) * 10);
+            if(currentTime == 145)
+            {
+                currentTime = 0;
+            }
+            else
+            {
+                currHour = (int)Mathf.Floor((float)currentTime / 6);
+                currMin = ((currentTime % 6) * 10);
+            }
         }
     }
 
