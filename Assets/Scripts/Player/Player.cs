@@ -11,8 +11,14 @@ public class Player : MonoBehaviour
     private int currDirection;
     private EnumTools currTool;
 
+    private bool canAttack = true;
+    private bool isAttacking;
+
+    [Header("Movement Settings")]
     [SerializeField] private float moveSpeed;
+    [Header("Interaction & Attack Settings")]
     [SerializeField] private Vector2 actionRange;
+    [SerializeField] private float attackCooldown;
 
     // Start is called before the first frame update
     void Start()
@@ -50,21 +56,29 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void CheckAttacks()
+    private IEnumerator CheckAttacks()
     {
         RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, actionRange, 0, Vector2.zero);
-
         if (hits.Length < 1)
         {
-            return;
+            yield return new WaitForSeconds(0);
         }
-
-        foreach (RaycastHit2D hit in hits)
+        else
         {
-            if (hit.transform.GetComponent<Attackable>())
+            canAttack = false;
+            isAttacking = true;
+
+            foreach (RaycastHit2D hit in hits)
             {
-                hit.transform.GetComponent<Attackable>().Attack();
+                if (hit.transform.GetComponent<Attackable>())
+                {
+                    hit.transform.GetComponent<Attackable>().Attack();
+                }
             }
+
+            yield return new WaitForSeconds(attackCooldown);
+            isAttacking = false;
+            canAttack = true;
         }
     }
 
@@ -133,6 +147,11 @@ public class Player : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext context)
     {
+        if (isAttacking)
+        {
+            return;
+        }
+
         moveDirection = context.ReadValue<Vector2>();
         currDirection = MainComponent(moveDirection);
         //Set Sprite Direction
@@ -141,9 +160,9 @@ public class Player : MonoBehaviour
 
     public void OnAttack(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (context.started && canAttack)
         {
-            CheckAttacks();
+            StartCoroutine(CheckAttacks());
         }
     }
 

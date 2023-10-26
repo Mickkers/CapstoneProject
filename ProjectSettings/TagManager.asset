@@ -44,6 +44,9 @@ TagManager:
   - name: Terrain
     uniqueID: 1705448803
     locked: 0
+  - name: Walls
+    uniqueID: 2744901253
+    locked: 0
   - name: Objects
     uniqueID: 3952345815
     locked: 0
