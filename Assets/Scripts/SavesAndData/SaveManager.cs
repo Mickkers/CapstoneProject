@@ -42,6 +42,11 @@ public class SaveManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void SetGameData(GameData newGameData)
+    {
+        gameData = newGameData;
+    }
+
     public GameData GetGameData()
     {
         return gameData;
@@ -86,10 +91,22 @@ public class GameData
 {
     public int days;
     public int money;
+    public int wood;
+    public int leather;
+
+    public int axeLevel;
+    public int scytheLevel;
+    public int swordLevel;
 
     public GameData()
     {
         days = 0;
         money = 0;
+        wood = 0;
+        leather = 0;
+
+        axeLevel = 1;
+        scytheLevel = 1;
+        swordLevel = 1;
     }
 }
