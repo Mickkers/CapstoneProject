@@ -2,12 +2,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
     [SerializeField ]private GameData currData;
+    private SaveManager saveManager;
     private int currentTime;
     private int currMin;
     private int currHour;
@@ -17,12 +19,12 @@ public class GameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (SaveManager.Instance is null)
+        if (GameManager.Instance is null)
         {
             return;
         }
-
-        currData = FindObjectOfType<SaveManager>().GetGameData();
+        saveManager = FindObjectOfType<SaveManager>();
+        currData = saveManager.GetGameData();
         currDate = currData.days % 28;
         currMonth = (int)Mathf.Ceil((float)currData.days / 28);
         currentTime = 36;
@@ -47,9 +49,15 @@ public class GameManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
-    private void EndDay()
+    public IEnumerator NextDay()
     {
+        currData.days++;
+        saveManager.SetGameData(currData);
+        saveManager.SaveBinary();
 
+        yield return new WaitForSeconds(1);
+        SceneManager.LoadScene(SceneStrings.testLevel);
+        Destroy(this);
     }
 
     private IEnumerator IncrementTime()

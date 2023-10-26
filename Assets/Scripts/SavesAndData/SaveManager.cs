@@ -42,6 +42,11 @@ public class SaveManager : MonoBehaviour
         DontDestroyOnLoad(gameObject);
     }
 
+    public void SetGameData(GameData newGameData)
+    {
+        gameData = newGameData;
+    }
+
     public GameData GetGameData()
     {
         return gameData;
