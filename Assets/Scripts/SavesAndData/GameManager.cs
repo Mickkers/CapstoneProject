@@ -57,7 +57,7 @@ public class GameManager : MonoBehaviour
 
         yield return new WaitForSeconds(1);
         SceneManager.LoadScene(SceneStrings.testLevel);
-        Destroy(this);
+        Destroy(this.gameObject);
     }
 
     private IEnumerator IncrementTime()
