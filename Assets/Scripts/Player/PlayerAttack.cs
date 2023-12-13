@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Vector2 actionRange;
     [SerializeField] private float attackCooldown;
     [SerializeField] private EnumTools currTool;
+    [SerializeField] private TextMeshProUGUI toolText;
 
     private bool canAttack;
     private bool isAttacking;
@@ -22,7 +24,7 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        toolText.text = currTool.ToString();
     }
 
     public void Attack()

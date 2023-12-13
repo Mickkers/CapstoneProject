@@ -58,8 +58,8 @@ public class WorkbenchMinigameManager : MonoBehaviour
 
     private void CraftingComplete()
     {
-        SaveManager sm = FindObjectOfType(typeof(SaveManager)) as SaveManager;
-        sm.gameData.wayangInventory.Add(result);
+        GameManager gm = FindObjectOfType(typeof(GameManager)) as GameManager;
+        gm.currData.wayangInventory.Add(result);
 
         completedMenu.gameObject.SetActive(true);
     }

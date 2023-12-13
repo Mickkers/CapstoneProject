@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    [SerializeField ]private GameData currData;
+    public GameData currData;
     private SaveManager saveManager;
     private int currentTime;
     private int currMin;
@@ -80,6 +80,13 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    public void Gameover()
+    {
+        SetMoney(-500);
+        NextDay();
+
+    }
+
     public int GetMonth()
     {
         return currMonth;
@@ -103,6 +110,7 @@ public class GameManager : MonoBehaviour
     public void SetMoney(int value)
     {
         currData.money += value;
+        currData.money = Mathf.Clamp(currData.money, 0, int.MaxValue);
     }
 
     public int GetLeather()
