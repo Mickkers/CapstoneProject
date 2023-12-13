@@ -6,7 +6,8 @@ using UnityEngine.UI;
 public class Workbench : Interactible
 {
     [SerializeField] private Canvas workbenchUI;
-    [SerializeField] private GameObject[] minigames;
+    [SerializeField] private RectTransform chooseTypeMenu;
+    [SerializeField] private WorkbenchMinigameManager minigameManagerPrefab;
 
     private GameplayInputManager gameplayInput;
 
@@ -32,5 +33,12 @@ public class Workbench : Interactible
     {
         workbenchUI.gameObject.SetActive(false);
         gameplayInput.enabled = true;
+    }
+
+    public void StartMinigames(int val)
+    {
+        chooseTypeMenu.gameObject.SetActive(false);
+        WorkbenchMinigameManager wmm = Instantiate(minigameManagerPrefab, workbenchUI.transform);
+        wmm.SetType(val);
     }
 }

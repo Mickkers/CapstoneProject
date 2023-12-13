@@ -817,26 +817,125 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
             ""id"": ""18852d4a-840f-4998-a7f8-624afa9f3164"",
             ""actions"": [
                 {
-                    ""name"": ""New action"",
-                    ""type"": ""Button"",
+                    ""name"": ""Directional"",
+                    ""type"": ""Value"",
                     ""id"": ""a38e07fc-4369-457a-8f9e-8cff870b9b76"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector2"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
-                    ""name"": """",
-                    ""id"": ""adc4dfe6-c994-4326-969b-23f08ba55b68"",
-                    ""path"": """",
+                    ""name"": ""2D Vector"",
+                    ""id"": ""e3e22673-fb1e-4be8-b2bd-b82369a1b812"",
+                    ""path"": ""2DVector"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""New action"",
-                    ""isComposite"": false,
+                    ""action"": ""Directional"",
+                    ""isComposite"": true,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""09edbcd8-c312-46d3-a058-87410aa6fa89"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Directional"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""62a00922-44c5-4bee-9390-6739a0d567ea"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Directional"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""98c1a3ba-ab91-4083-96ab-23c2d6176407"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Directional"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""5bb809a3-f390-4601-9b16-8cef523a69c7"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Directional"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""2D Vector"",
+                    ""id"": ""e0dac7d1-06f8-4ec2-8862-b6e95ce503a5"",
+                    ""path"": ""2DVector"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Directional"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""up"",
+                    ""id"": ""ef71210e-dc2e-45e9-bc99-70cb3c59d616"",
+                    ""path"": ""<Keyboard>/upArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Directional"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""down"",
+                    ""id"": ""35975a00-c6b4-4e37-a6d4-430838b49446"",
+                    ""path"": ""<Keyboard>/downArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Directional"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""left"",
+                    ""id"": ""f0c6c63e-648f-47cf-8c8a-41ab69d1c5a9"",
+                    ""path"": ""<Keyboard>/leftArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Directional"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""right"",
+                    ""id"": ""b27793a9-4f80-4fcc-95ec-3348da577de7"",
+                    ""path"": ""<Keyboard>/rightArrow"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Directional"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
                 }
             ]
         }
@@ -925,7 +1024,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
         // Minigame
         m_Minigame = asset.FindActionMap("Minigame", throwIfNotFound: true);
-        m_Minigame_Newaction = m_Minigame.FindAction("New action", throwIfNotFound: true);
+        m_Minigame_Directional = m_Minigame.FindAction("Directional", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1155,12 +1254,12 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     // Minigame
     private readonly InputActionMap m_Minigame;
     private IMinigameActions m_MinigameActionsCallbackInterface;
-    private readonly InputAction m_Minigame_Newaction;
+    private readonly InputAction m_Minigame_Directional;
     public struct MinigameActions
     {
         private @PlayerInput m_Wrapper;
         public MinigameActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Newaction => m_Wrapper.m_Minigame_Newaction;
+        public InputAction @Directional => m_Wrapper.m_Minigame_Directional;
         public InputActionMap Get() { return m_Wrapper.m_Minigame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1170,16 +1269,16 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         {
             if (m_Wrapper.m_MinigameActionsCallbackInterface != null)
             {
-                @Newaction.started -= m_Wrapper.m_MinigameActionsCallbackInterface.OnNewaction;
-                @Newaction.performed -= m_Wrapper.m_MinigameActionsCallbackInterface.OnNewaction;
-                @Newaction.canceled -= m_Wrapper.m_MinigameActionsCallbackInterface.OnNewaction;
+                @Directional.started -= m_Wrapper.m_MinigameActionsCallbackInterface.OnDirectional;
+                @Directional.performed -= m_Wrapper.m_MinigameActionsCallbackInterface.OnDirectional;
+                @Directional.canceled -= m_Wrapper.m_MinigameActionsCallbackInterface.OnDirectional;
             }
             m_Wrapper.m_MinigameActionsCallbackInterface = instance;
             if (instance != null)
             {
-                @Newaction.started += instance.OnNewaction;
-                @Newaction.performed += instance.OnNewaction;
-                @Newaction.canceled += instance.OnNewaction;
+                @Directional.started += instance.OnDirectional;
+                @Directional.performed += instance.OnDirectional;
+                @Directional.canceled += instance.OnDirectional;
             }
         }
     }
@@ -1252,6 +1351,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     }
     public interface IMinigameActions
     {
-        void OnNewaction(InputAction.CallbackContext context);
+        void OnDirectional(InputAction.CallbackContext context);
     }
 }

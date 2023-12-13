@@ -2,21 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WorkbenchInputManager : MonoBehaviour
+public class MinigameInputManager : MonoBehaviour
 {
     private PlayerInput playerInput;
     public PlayerInput.MinigameActions minigame;
 
-    private PlayerMovement playerMovement;
-    private PlayerInteract playerInteract;
-    private PlayerAttack playerAttack;
+    private Minigame mgame;
 
     // Start is called before the first frame update
     void Awake()
     {
         playerInput = new PlayerInput();
         minigame = playerInput.Minigame;
-
+        mgame = GetComponent<Minigame>();
         
     }
 
@@ -38,7 +36,7 @@ public class WorkbenchInputManager : MonoBehaviour
 
     void FixedUpdate()
     {
-        
+        mgame.MinigameDirectional(minigame.Directional.ReadValue<Vector2>());
     }
 
 }
