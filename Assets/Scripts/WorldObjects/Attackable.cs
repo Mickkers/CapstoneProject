@@ -5,5 +5,5 @@ public abstract class Attackable : MonoBehaviour
 {
     public EnumTools correctTool;
 
-    public abstract void Attack(EnumTools currTool);
+    public abstract void Attack(PlayerAttack player);
 }

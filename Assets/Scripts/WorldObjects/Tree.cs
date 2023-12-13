@@ -28,11 +28,11 @@ public class Tree : Attackable
         }
     }
 
-    public override void Attack(EnumTools currTool)
+    public override void Attack(PlayerAttack player)
     {
-        if(currTool == correctTool)
+        if(player.GetCurrTool() == correctTool)
         {
-            hp -= 1;
+            hp -= player.GetAttackDamage();
             Debug.Log(hp);
         }
     }

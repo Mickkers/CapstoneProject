@@ -48,7 +48,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 if (hit.transform.GetComponent<Attackable>())
                 {
-                    hit.transform.GetComponent<Attackable>().Attack(currTool);
+                    hit.transform.GetComponent<Attackable>().Attack(this);
                 }
             }
 
@@ -87,5 +87,15 @@ public class PlayerAttack : MonoBehaviour
         {
             currTool = EnumTools.Scythe;
         }
+    }
+
+    public float GetAttackDamage()
+    {
+        return 2;
+    }
+
+    public EnumTools GetCurrTool()
+    {
+        return currTool;
     }
 }

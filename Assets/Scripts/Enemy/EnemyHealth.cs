@@ -50,9 +50,13 @@ public class EnemyHealth : Attackable
         Destroy(this.gameObject);
     }
 
-    public override void Attack(EnumTools currTool)
+    public override void Attack(PlayerAttack player)
     {
-        if(currTool == correctTool)
+        if(player.GetCurrTool() == correctTool)
+        {
+            currHealth -= player.GetAttackDamage();
+        }
+        else
         {
             currHealth -= 1;
         }
