@@ -7,17 +7,17 @@ using TMPro;
 public class WorkbenchMinigameManager : MonoBehaviour
 {
     private int currStage;
-    private int wayangType;
-    private float wayangScore;
+    private Wayang result = new Wayang();
     private bool minigameActive;
 
     [SerializeField] private GameObject[] minigames;
     [SerializeField] private TextMeshProUGUI stageText;
+    [SerializeField] private Transform completedMenu;
 
     private void Start()
     {
         currStage = 0;
-        wayangScore = 0;
+        result.score = 0;
         NextStage();
     }
 
@@ -40,7 +40,7 @@ public class WorkbenchMinigameManager : MonoBehaviour
 
     public void SetType(int type)
     {
-        wayangType = type;
+        result.type = type;
     }
 
     private void NextStage()
@@ -58,13 +58,15 @@ public class WorkbenchMinigameManager : MonoBehaviour
 
     private void CraftingComplete()
     {
-        Debug.Log("Final Wayang Score: " + wayangScore);
+        SaveManager sm = FindObjectOfType(typeof(SaveManager)) as SaveManager;
+        sm.gameData.wayangInventory.Add(result);
 
+        completedMenu.gameObject.SetActive(true);
     }
 
     public void StageOver(float val)
     {
-        wayangScore += val;
+        result.score += (int)val;
         NextStage();
     }
 }

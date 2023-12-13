@@ -14,6 +14,7 @@ public class SaveManager : MonoBehaviour
 
     private void Start()
     {
+        //Debug.Log(Path);
         if(SaveManager.Instance is null)
         {
             return;
@@ -98,6 +99,8 @@ public class GameData
     public int scytheLevel;
     public int swordLevel;
 
+    public List<Wayang> wayangInventory;
+
     public GameData()
     {
         days = 0;
@@ -108,5 +111,20 @@ public class GameData
         axeLevel = 1;
         scytheLevel = 1;
         swordLevel = 1;
+
+        wayangInventory = new List<Wayang>();
+    }
+}
+
+[Serializable]
+public class Wayang
+{
+    public int score;
+    public int type;
+
+    public Wayang()
+    {
+        score = 0;
+        type = 0;
     }
 }
