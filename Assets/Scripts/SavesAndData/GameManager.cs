@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
         currDate = currData.days % 28;
         currMonth = (int)Mathf.Ceil((float)currData.days / 28);
         currentTime = 36;
+        currHour = (int)Mathf.Floor((float)currentTime / 6);
+        currMin = ((currentTime % 6) * 10);
         StartCoroutine(IncrementTime());
     }
 
