@@ -6,6 +6,8 @@ public abstract class EnemyAttack : MonoBehaviour
 {
     public float attackRange;
     public float attackDamage;
+    public float attackCooldown;
+    public bool canAttack;
 
     // Start is called before the first frame update
     void Start()

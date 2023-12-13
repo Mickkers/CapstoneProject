@@ -6,8 +6,8 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    [SerializeField] private int currHealth;
-    [SerializeField] private int maxHealth;
+    [SerializeField] private float currHealth;
+    [SerializeField] private float maxHealth;
     [SerializeField] private TextMeshProUGUI healthText;
 
     private GameManager gameManager;
@@ -22,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        currHealth = Mathf.Clamp(currHealth, 0, maxHealth);
+        currHealth = Mathf.Clamp(currHealth, 0f, maxHealth);
         UpdateHealthUI();
         if (currHealth == 0)
         {
@@ -38,6 +38,11 @@ public class PlayerHealth : MonoBehaviour
 
     private void UpdateHealthUI()
     {
-        healthText.text = currHealth + "/" + maxHealth;
+        healthText.text = "Health: " + (int)currHealth + "/" + (int)maxHealth;
+    }
+
+    public void TakeDamage(float val)
+    {
+        currHealth -= val;
     }
 }
