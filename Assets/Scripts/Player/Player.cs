@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
             {
                 if (hit.transform.GetComponent<Attackable>())
                 {
-                    hit.transform.GetComponent<Attackable>().Attack();
+                    hit.transform.GetComponent<Attackable>().Attack(currTool);
                 }
             }
 

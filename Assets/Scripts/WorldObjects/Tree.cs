@@ -6,7 +6,6 @@ using UnityEngine;
 public class Tree : Attackable
 {
     [SerializeField] private float hp;
-    [SerializeField] private EnumTools correctTool;
 
     // Start is called before the first frame update
     void Start()
@@ -29,9 +28,12 @@ public class Tree : Attackable
         }
     }
 
-    public override void Attack()
+    public override void Attack(EnumTools currTool)
     {
-        hp -= 1;
-        Debug.Log(hp);
+        if(currTool == correctTool)
+        {
+            hp -= 1;
+            Debug.Log(hp);
+        }
     }
 }

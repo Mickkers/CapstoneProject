@@ -2,5 +2,6 @@
 {
     Axe,
     Scythe,
-    Sword
+    Sword,
+    Any
 }
