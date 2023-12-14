@@ -1,10 +1,10 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeEnemyAttack : EnemyAttack
+public class RangedEnemyAttack : EnemyAttack
 {
+    [SerializeField] private RangedProjectile projectilePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -12,6 +12,7 @@ public class MeleeEnemyAttack : EnemyAttack
         player = FindObjectOfType(typeof(PlayerHealth)) as PlayerHealth;
         rbody = GetComponent<Rigidbody2D>();
         canAttack = true;
+
     }
 
     // Update is called once per frame
@@ -26,10 +27,10 @@ public class MeleeEnemyAttack : EnemyAttack
 
         yield return new WaitForSeconds(attackCooldown);
 
-        if (Vector2.Distance(transform.position, player.gameObject.transform.position) <= attackRange)
-        {
-            player.TakeDamage(attackDamage);
-        }
+        RangedProjectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
+        projectile.damage = attackDamage;
+        projectile.direction = player.transform.position - transform.position;
+
         rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         canAttack = true;
     }

@@ -51,12 +51,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5558062404444558754, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
+      propertyPath: healthUI
+      value: 
+      objectReference: {fileID: 2854090758493427101}
+    - target: {fileID: 5558062404444558754, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
+      propertyPath: leatherReward
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 5558062404444558757, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
       propertyPath: m_Name
-      value: EnemyMelee
+      value: EnemyMelee Variant
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
+--- !u!224 &2854090758493427101 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5558062404739748417, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
+  m_PrefabInstance: {fileID: 7690441873727326172}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2854090758767612537 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5558062404444558757, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
@@ -74,5 +87,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbe51ce83b7ec114f9a19ddcab29cc85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackRange: 0
-  attackDamage: 0
+  attackRange: 1.5
+  attackDamage: 1
+  attackCooldown: 1.2
+  canAttack: 0
+  player: {fileID: 0}
+  rbody: {fileID: 0}

@@ -29,7 +29,10 @@ public class PlayerAttack : MonoBehaviour
 
     public void Attack()
     {
-        StartCoroutine(AttackAction());
+        if (canAttack && !isAttacking)
+        {
+            StartCoroutine(AttackAction());
+        }
     }
 
     private IEnumerator AttackAction()

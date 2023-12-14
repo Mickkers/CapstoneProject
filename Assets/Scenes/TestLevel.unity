@@ -11686,5 +11686,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyMelee
       objectReference: {fileID: 0}
+    - target: {fileID: 2854090758767612542, guid: d315ba8f757d04140a21c33d718a37a6, type: 3}
+      propertyPath: leatherReward
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d315ba8f757d04140a21c33d718a37a6, type: 3}

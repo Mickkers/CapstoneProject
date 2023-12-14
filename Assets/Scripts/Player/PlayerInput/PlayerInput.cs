@@ -824,6 +824,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""New action"",
+                    ""type"": ""Button"",
+                    ""id"": ""1fcbadfd-7ab5-42e7-af1f-ee78158ece58"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -936,6 +945,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Directional"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""8288d264-da2d-4bff-8365-57ceb4f591f4"",
+                    ""path"": ""<Gamepad>/dpad"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Directional"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""0c6861c6-4144-4e8d-97e5-17879537ee77"",
+                    ""path"": """",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""New action"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -1025,6 +1056,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         // Minigame
         m_Minigame = asset.FindActionMap("Minigame", throwIfNotFound: true);
         m_Minigame_Directional = m_Minigame.FindAction("Directional", throwIfNotFound: true);
+        m_Minigame_Newaction = m_Minigame.FindAction("New action", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -1255,11 +1287,13 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Minigame;
     private IMinigameActions m_MinigameActionsCallbackInterface;
     private readonly InputAction m_Minigame_Directional;
+    private readonly InputAction m_Minigame_Newaction;
     public struct MinigameActions
     {
         private @PlayerInput m_Wrapper;
         public MinigameActions(@PlayerInput wrapper) { m_Wrapper = wrapper; }
         public InputAction @Directional => m_Wrapper.m_Minigame_Directional;
+        public InputAction @Newaction => m_Wrapper.m_Minigame_Newaction;
         public InputActionMap Get() { return m_Wrapper.m_Minigame; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1272,6 +1306,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Directional.started -= m_Wrapper.m_MinigameActionsCallbackInterface.OnDirectional;
                 @Directional.performed -= m_Wrapper.m_MinigameActionsCallbackInterface.OnDirectional;
                 @Directional.canceled -= m_Wrapper.m_MinigameActionsCallbackInterface.OnDirectional;
+                @Newaction.started -= m_Wrapper.m_MinigameActionsCallbackInterface.OnNewaction;
+                @Newaction.performed -= m_Wrapper.m_MinigameActionsCallbackInterface.OnNewaction;
+                @Newaction.canceled -= m_Wrapper.m_MinigameActionsCallbackInterface.OnNewaction;
             }
             m_Wrapper.m_MinigameActionsCallbackInterface = instance;
             if (instance != null)
@@ -1279,6 +1316,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Directional.started += instance.OnDirectional;
                 @Directional.performed += instance.OnDirectional;
                 @Directional.canceled += instance.OnDirectional;
+                @Newaction.started += instance.OnNewaction;
+                @Newaction.performed += instance.OnNewaction;
+                @Newaction.canceled += instance.OnNewaction;
             }
         }
     }
@@ -1352,5 +1392,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     public interface IMinigameActions
     {
         void OnDirectional(InputAction.CallbackContext context);
+        void OnNewaction(InputAction.CallbackContext context);
     }
 }

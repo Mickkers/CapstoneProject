@@ -6,13 +6,16 @@ using UnityEngine.UI;
 
 public class EnemyHealth : Attackable
 {
+    [SerializeField] private int leatherReward;
 
     [SerializeField] private float maxHealth;
+    [SerializeField] private RectTransform healthUI;
     [SerializeField] private Image healthbar;
 
 
+
     private float currHealth;
-    private bool isAlive;
+    [HideInInspector] public bool isAlive;
 
     // Start is called before the first frame update
     void Start()
@@ -24,7 +27,7 @@ public class EnemyHealth : Attackable
     // Update is called once per frame
     void Update()
     {
-        UpdateHealthUI();
+        UpdateHealth();
     }
 
     private void UpdateHealth()
@@ -40,12 +43,21 @@ public class EnemyHealth : Attackable
 
     private void UpdateHealthUI()
     {
+        if(currHealth == maxHealth)
+        {
+            healthUI.gameObject.SetActive(false);
+        }
+        else
+        {
+            healthUI.gameObject.SetActive(true);
+        }
         healthbar.fillAmount = currHealth / maxHealth;
     }
 
     private IEnumerator Death()
     {
-
+        GameManager gm = FindObjectOfType(typeof(GameManager)) as GameManager;
+        gm.SetLeather(leatherReward);
         yield return new WaitForSeconds(.5f);
         Destroy(this.gameObject);
     }

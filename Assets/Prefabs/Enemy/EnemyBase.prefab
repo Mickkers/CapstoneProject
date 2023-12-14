@@ -149,8 +149,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   correctTool: 2
+  leatherReward: 0
   maxHealth: 5
+  healthUI: {fileID: 0}
   healthbar: {fileID: 5558062406133919206}
+  isAlive: 0
 --- !u!114 &5558062404444558748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -183,7 +186,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &5558062404739748417
 RectTransform:
   m_ObjectHideFlags: 0

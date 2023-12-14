@@ -6,6 +6,7 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     private PlayerHealth player;
+    private EnemyHealth health;
     private Rigidbody2D rbody;
 
     [SerializeField] private float moveSpeed;
@@ -22,17 +23,22 @@ public class EnemyMovement : MonoBehaviour
         player = FindObjectOfType(typeof(PlayerHealth)) as PlayerHealth;
         attackRange = GetComponent<EnemyAttack>().attackRange;
         rbody = GetComponent<Rigidbody2D>();
+        health = GetComponent<EnemyHealth>();
+
     }
 
 
     void FixedUpdate()
     {
-        CheckMove();
+        if (health.isAlive)
+        {
+            CheckMove();
+        }
     }
 
     private void CheckMove()
     {
-        if(Vector2.Distance(transform.position, originalPosition) < 10f && Vector2.Distance(transform.position, player.gameObject.transform.position) <= chaseRange && Vector2.Distance(transform.position, player.gameObject.transform.position) > attackRange)
+        if(Vector2.Distance(transform.position, originalPosition) < 10f && Vector2.Distance(transform.position, player.gameObject.transform.position) <= chaseRange && Vector2.Distance(transform.position, player.gameObject.transform.position) >= attackRange)
         {
             Move();
         }

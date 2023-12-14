@@ -867,7 +867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   minigames:
-  - {fileID: 3640822831107499630, guid: 44e492fc86a021440878db46860d34cf, type: 3}
   - {fileID: 3105000806043918534, guid: c5bd9f52dda240649959638895ad4edc, type: 3}
+  - {fileID: 3640822831107499630, guid: 44e492fc86a021440878db46860d34cf, type: 3}
   stageText: {fileID: 7285079603751725766}
   completedMenu: {fileID: 1314129557}

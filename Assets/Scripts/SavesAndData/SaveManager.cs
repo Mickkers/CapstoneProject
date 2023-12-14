@@ -14,8 +14,8 @@ public class SaveManager : MonoBehaviour
 
     private void Start()
     {
-        //Debug.Log(Path);
-        if(SaveManager.Instance is null)
+        Debug.Log(Path);
+        if (SaveManager.Instance is null)
         {
             return;
         }

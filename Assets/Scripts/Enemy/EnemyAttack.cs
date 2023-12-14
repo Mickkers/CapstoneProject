@@ -8,16 +8,16 @@ public abstract class EnemyAttack : MonoBehaviour
     public float attackDamage;
     public float attackCooldown;
     public bool canAttack;
-
-    // Start is called before the first frame update
-    void Start()
+    public PlayerHealth player;
+    public Rigidbody2D rbody;
+    public void CheckAttack()
     {
-        
+        if (Vector2.Distance(transform.position, player.gameObject.transform.position) < attackRange && canAttack)
+        {
+            canAttack = false;
+            StartCoroutine(AttackAction());
+        }
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public abstract IEnumerator AttackAction();
 }
