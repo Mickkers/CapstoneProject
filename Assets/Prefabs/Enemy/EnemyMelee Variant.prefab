@@ -13,11 +13,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5558062404444558750, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.66
+      value: -2.2
       objectReference: {fileID: 0}
     - target: {fileID: 5558062404444558750, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 3.96
       objectReference: {fileID: 0}
     - target: {fileID: 5558062404444558750, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
       propertyPath: m_LocalPosition.z
@@ -51,6 +51,30 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5558062404444558752, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558062404444558752, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
+      propertyPath: m_SpriteTilingProperty.newSize.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558062404444558752, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558062404444558753, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
+      propertyPath: m_Size.x
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558062404444558753, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
+      propertyPath: m_Size.y
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558062404444558753, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -511114192, guid: ae8affa24ba8bfe4db32a3b155372ada, type: 3}
     - target: {fileID: 5558062404444558754, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
       propertyPath: healthUI
       value: 
@@ -61,7 +85,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5558062404444558757, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
       propertyPath: m_Name
-      value: EnemyMelee Variant
+      value: EnemyMelee
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
@@ -93,3 +117,23 @@ MonoBehaviour:
   canAttack: 0
   player: {fileID: 0}
   rbody: {fileID: 0}
+--- !u!95 &823625911
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2854090758767612537}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 69c3168d701c21e40855d71e992ce273, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

@@ -26,7 +26,7 @@ public class GameplayUIManager : MonoBehaviour
 
     public void UpdateUI()
     {
-        monthDate.text = "Month: " + gameManager.GetMonth() + " Date: " + gameManager.GetDate();
+        monthDate.text = gameManager.GetDate().ToString();
         time.text = gameManager.GetTime();
         money.text = gameManager.GetMoney().ToString();
         resources.text = "Wood: " + gameManager.GetWood() + " Leather: " + gameManager.GetLeather();

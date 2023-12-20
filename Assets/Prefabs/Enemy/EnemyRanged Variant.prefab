@@ -13,11 +13,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5558062404444558750, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -4.66
+      value: -8.76
       objectReference: {fileID: 0}
     - target: {fileID: 5558062404444558750, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5558062404444558750, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
       propertyPath: m_LocalPosition.z
@@ -51,13 +51,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5558062404444558752, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558062404444558753, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -794802488, guid: c17e441b9a5ba774d9c22e576c103f9c, type: 3}
     - target: {fileID: 5558062404444558753, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
       propertyPath: m_Color.b
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5558062404444558753, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
       propertyPath: m_Color.g
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5558062404444558754, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
       propertyPath: healthUI
@@ -69,7 +77,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5558062404444558757, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
       propertyPath: m_Name
-      value: EnemyRanged Variant
+      value: EnemyRanged
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
@@ -102,3 +110,23 @@ MonoBehaviour:
   player: {fileID: 0}
   rbody: {fileID: 0}
   projectilePrefab: {fileID: 4092226997437890605, guid: 55a6133ee5f0c384eb461ad832c188da, type: 3}
+--- !u!95 &1079888380
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2843809971939668356}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 686d018cdd5129f44972d2727e2750f9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0

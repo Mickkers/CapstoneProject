@@ -99,7 +99,27 @@ public class GameManager : MonoBehaviour
 
     public string GetTime()
     {
-        return currHour.ToString() + " : " + currMin.ToString();
+        string hour;
+        string minute;
+        if(currHour < 10)
+        {
+            hour = "0" + currHour;
+        }
+        else
+        {
+            hour = currHour.ToString();
+        }
+        if(currMin == 0)
+        {
+            minute = "0" + currMin;
+        }
+        else
+        {
+            minute = currMin.ToString();
+        }
+
+        return "<mspace=30>" + hour + " " + minute + "</mspace>";
+        //return currHour.ToString() + " : " + currMin.ToString();
     }
 
     public int GetMoney()
