@@ -1126,7 +1126,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   saveManager: {fileID: 1640582700}
   newGameButton: {fileID: 1730093831}
-  continueGameButton: {fileID: 0}
+  continueGameButton: {fileID: 493120881}
   exitGameButton: {fileID: 0}
   exitButton: {fileID: 1065342818}
   confirmButton: {fileID: 1080859088}

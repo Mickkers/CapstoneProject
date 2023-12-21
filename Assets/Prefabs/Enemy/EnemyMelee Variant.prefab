@@ -52,6 +52,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5558062404444558752, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
+      propertyPath: m_Size.y
+      value: 0.97342825
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558062404444558752, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.016908407
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558062404444558752, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
       propertyPath: m_SpriteTilingProperty.newSize.x
       value: 0.16
       objectReference: {fileID: 0}
@@ -99,24 +107,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5558062404444558757, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
   m_PrefabInstance: {fileID: 7690441873727326172}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1995609871832328568
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2854090758767612537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbe51ce83b7ec114f9a19ddcab29cc85, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRange: 1.5
-  attackDamage: 1
-  attackCooldown: 1.2
-  canAttack: 0
-  player: {fileID: 0}
-  rbody: {fileID: 0}
 --- !u!95 &823625911
 Animator:
   serializedVersion: 5
@@ -137,3 +127,21 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1995609871832328568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2854090758767612537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cbe51ce83b7ec114f9a19ddcab29cc85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 1.5
+  attackDamage: 1
+  attackCooldown: 1.2
+  canAttack: 0
+  player: {fileID: 0}
+  rbody: {fileID: 0}

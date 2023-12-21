@@ -6,6 +6,7 @@ public class PlayerMovement : MonoBehaviour
 {
     private Vector2 moveDirection;
     private Rigidbody2D rbody;
+    private Animator anim;
     private int currDirection;
 
     [Header("Movement Settings")]
@@ -21,6 +22,8 @@ public class PlayerMovement : MonoBehaviour
         private set
         {
             _isMoving = value;
+            anim.SetBool(AnimationStrings.isMoving, value);
+
         }
     }
 
@@ -33,10 +36,6 @@ public class PlayerMovement : MonoBehaviour
         }
         private set
         {
-            if (_isFacingRight != value)
-            {
-                transform.localScale *= new Vector2(-1, 1);
-            }
 
             _isFacingRight = value;
         }
@@ -46,6 +45,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rbody = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -59,7 +59,8 @@ public class PlayerMovement : MonoBehaviour
         IsMoving = value.magnitude != 0;
 
         rbody.MovePosition(rbody.position + value * moveSpeed);
-
+        anim.SetFloat(AnimationStrings.horizontal, value.x);
+        anim.SetFloat(AnimationStrings.vertical, value.y);
         SetFacingDirection(value.x);
     }
     private void SetFacingDirection(float value)

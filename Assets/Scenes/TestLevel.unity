@@ -271,6 +271,7 @@ GameObject:
   - component: {fileID: 281101219}
   - component: {fileID: 281101218}
   - component: {fileID: 281101217}
+  - component: {fileID: 281101221}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
@@ -445,6 +446,30 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!66 &281101221
+CompositeCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 281101215}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_GeometryType: 0
+  m_GenerationType: 0
+  m_EdgeRadius: 0
+  m_ColliderPaths:
+  - m_Collider: {fileID: 281101218}
+    m_ColliderPaths: []
+  m_CompositePaths:
+    m_Paths: []
+  m_VertexDistance: 0.0005
+  m_OffsetDistance: 0.00005
 --- !u!1 &304311012
 GameObject:
   m_ObjectHideFlags: 0
@@ -10241,7 +10266,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.03150177, y: -1.6459675}
+  m_Offset: {x: -0.03150177, y: -1.5874417}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -10252,7 +10277,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.31806946, y: 1}
+  m_Size: {x: 0.31806946, y: 1.1170516}
   m_EdgeRadius: 0
 --- !u!114 &1044585608
 MonoBehaviour:
@@ -11539,8 +11564,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.21133333}
-  m_Size: {x: 1, y: 1}
+  m_Offset: {x: 0.009678483, y: 0.07204139}
+  m_Size: {x: 0.7207072, y: 1.0753734}
   m_Direction: 0
 --- !u!50 &2086690474
 Rigidbody2D:
@@ -11966,6 +11991,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2843809971939668353, guid: 9ce3e35cabdd492419a48049541e7423, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0326068
+      objectReference: {fileID: 0}
+    - target: {fileID: 2843809971939668353, guid: 9ce3e35cabdd492419a48049541e7423, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.021135211
+      objectReference: {fileID: 0}
     - target: {fileID: 2843809971939668356, guid: 9ce3e35cabdd492419a48049541e7423, type: 3}
       propertyPath: m_Name
       value: EnemyRanged
