@@ -1,10 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
+using System;
 
 public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] private Vector2 actionRange;
+    [SerializeField] private RectTransform interactPrompt;
+    [SerializeField] private TextMeshProUGUI promptText;
+
+    private Interactible interactTarget;
 
     // Start is called before the first frame update
     void Start()
@@ -18,10 +24,16 @@ public class PlayerInteract : MonoBehaviour
         
     }
 
-    public void Interact()
+    private void FixedUpdate()
+    {
+        CheckInteractions();
+    }
+
+    private void CheckInteractions()
     {
         RaycastHit2D[] hits = Physics2D.BoxCastAll(transform.position, actionRange, 0, Vector2.zero);
 
+        
         if (hits.Length < 1)
         {
             return;
@@ -31,9 +43,20 @@ public class PlayerInteract : MonoBehaviour
         {
             if (hit.transform.GetComponent<Interactible>())
             {
-                hit.transform.GetComponent<Interactible>().Interact();
+                interactPrompt.gameObject.SetActive(true);
+                interactTarget = hit.transform.GetComponent<Interactible>();
+                promptText.text = interactTarget.interactPrompt;
                 return;
             }
+            else
+            {
+                interactPrompt.gameObject.SetActive(false);
+            }
         }
+    }
+
+    public void Interact()
+    {
+        interactTarget.Interact();
     }
 }

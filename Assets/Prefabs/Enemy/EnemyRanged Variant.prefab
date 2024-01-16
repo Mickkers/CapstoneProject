@@ -52,6 +52,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5558062404444558752, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
+      propertyPath: m_Size.y
+      value: 1.0326068
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558062404444558752, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.021135211
+      objectReference: {fileID: 0}
+    - target: {fileID: 5558062404444558752, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 1
       objectReference: {fileID: 0}
@@ -91,25 +99,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5558062404444558757, guid: d2d26cebe75ca654dad7de440608d350, type: 3}
   m_PrefabInstance: {fileID: 7662041701941404705}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1515329071
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2843809971939668356}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 04dcd0f2b2c7a7847a6c2fa89a40f812, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  attackRange: 4
-  attackDamage: 1
-  attackCooldown: 1.5
-  canAttack: 0
-  player: {fileID: 0}
-  rbody: {fileID: 0}
-  projectilePrefab: {fileID: 4092226997437890605, guid: 55a6133ee5f0c384eb461ad832c188da, type: 3}
 --- !u!95 &1079888380
 Animator:
   serializedVersion: 5
@@ -130,3 +119,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+--- !u!114 &1515329071
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2843809971939668356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 04dcd0f2b2c7a7847a6c2fa89a40f812, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 4
+  attackDamage: 1
+  attackCooldown: 1.5
+  canAttack: 0
+  player: {fileID: 0}
+  rbody: {fileID: 0}
+  projectilePrefab: {fileID: 4092226997437890605, guid: 55a6133ee5f0c384eb461ad832c188da, type: 3}

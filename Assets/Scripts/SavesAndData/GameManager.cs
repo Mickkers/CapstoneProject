@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         saveManager.SaveBinary();
 
         yield return new WaitForSeconds(1);
-        SceneManager.LoadScene(SceneStrings.testLevel);
+        SceneManager.LoadScene(SceneStrings.Level);
         Destroy(this.gameObject);
     }
 

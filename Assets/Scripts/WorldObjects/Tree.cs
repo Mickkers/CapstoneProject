@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Tree : Attackable
 {
+    [SerializeField] private int woodReward;
     [SerializeField] private float hp;
 
     // Start is called before the first frame update
@@ -23,7 +24,7 @@ public class Tree : Attackable
     {
         if (hp <= 0)
         {
-            FindObjectOfType<GameManager>().SetWood(5);
+            FindObjectOfType<GameManager>().SetWood(woodReward);
             this.gameObject.SetActive(false);
         }
     }

@@ -55,12 +55,12 @@ public class MainMenuManager : MonoBehaviour
     public void CreateNewGame()
     {
         saveManager.CreateNewSave();
-        SceneManager.LoadScene("TestLevel");
+        SceneManager.LoadScene("Level");
     }
 
     public void LoadGame()
     {
-        SceneManager.LoadScene("TestLevel");
+        SceneManager.LoadScene("Level");
     }
 
     public void ExitGame()

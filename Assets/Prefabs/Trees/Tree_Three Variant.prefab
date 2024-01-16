@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &8632877562232517496
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 8299399345318558852, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: hp
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558852, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: woodReward
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558857, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 851311536, guid: b9474dd30f96790488f5d6e3200f84ea, type: 3}
+    - target: {fileID: 8299399345318558857, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_Color.b
+      value: 0.5518868
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558857, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_Color.g
+      value: 0.58319664
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558857, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558858, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558858, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 5.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558858, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.26
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558858, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558858, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558858, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558858, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558858, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558858, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558858, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558858, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558859, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.x
+      value: 2.46875
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558859, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_SpriteTilingProperty.oldSize.y
+      value: 3.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8299399345318558862, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
+      propertyPath: m_Name
+      value: Tree_Three Variant
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9f5ee735f796f2f4b84f4432bc786cd8, type: 3}
