@@ -179,4 +179,10 @@ public class GameManager : MonoBehaviour
         }
         return value;
     }
+
+    public int[] GetUpgradeLevels()
+    {
+        int[] levels = { currData.sellMultiplierLevel, currData.axeLevel, currData.swordLevel };
+        return levels;
+    }
 }
