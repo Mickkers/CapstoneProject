@@ -51,12 +51,16 @@ public class PlayerInteract : MonoBehaviour
             else
             {
                 interactPrompt.gameObject.SetActive(false);
+                interactTarget = null;
             }
         }
     }
 
     public void Interact()
     {
-        interactTarget.Interact();
+        if(interactTarget != null)
+        {
+            interactTarget.Interact();
+        }
     }
 }

@@ -8,6 +8,8 @@ public class Workbench : Interactible
     [SerializeField] private Canvas workbenchUI;
     [SerializeField] private RectTransform chooseTypeMenu;
     [SerializeField] private WorkbenchMinigameManager minigameManagerPrefab;
+    public int cost1;
+    public int cost2;
 
     private GameplayInputManager gameplayInput;
 

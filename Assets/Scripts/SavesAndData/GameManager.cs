@@ -25,6 +25,10 @@ public class GameManager : MonoBehaviour
         }
         saveManager = FindObjectOfType<SaveManager>();
         currData = saveManager.GetGameData();
+        if(currData.days == 0)
+        {
+            currData.days++;
+        }
         currDate = currData.days % 28;
         currMonth = (int)Mathf.Ceil((float)currData.days / 28);
         currentTime = 36;

@@ -8,7 +8,6 @@ public class WorkbenchMinigameManager : MonoBehaviour
 {
     private int currStage;
     private Wayang result = new Wayang();
-    private bool minigameActive;
 
     [SerializeField] private GameObject[] minigames;
     [SerializeField] private TextMeshProUGUI stageText;
@@ -48,11 +47,9 @@ public class WorkbenchMinigameManager : MonoBehaviour
         currStage++;
         if(currStage > 3)
         {
-            minigameActive = false;
             CraftingComplete();
             return;
         }
-        minigameActive = true;
         Instantiate(minigames[0], transform);
     }
 

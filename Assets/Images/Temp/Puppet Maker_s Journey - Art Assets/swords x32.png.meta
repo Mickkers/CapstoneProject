@@ -108,10 +108,10 @@ TextureImporter:
       name: swords x32_0
       rect:
         serializedVersion: 2
-        x: 16
-        y: 2
-        width: 32
-        height: 60
+        x: 0
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -129,10 +129,10 @@ TextureImporter:
       name: swords x32_1
       rect:
         serializedVersion: 2
-        x: 80
-        y: 2
-        width: 32
-        height: 60
+        x: 64
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,10 +150,10 @@ TextureImporter:
       name: swords x32_2
       rect:
         serializedVersion: 2
-        x: 144
-        y: 2
-        width: 32
-        height: 60
+        x: 128
+        y: 0
+        width: 64
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

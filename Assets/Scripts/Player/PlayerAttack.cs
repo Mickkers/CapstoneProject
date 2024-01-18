@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerAttack : MonoBehaviour
 {
@@ -9,7 +10,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private Vector2 actionRange;
     [SerializeField] private float attackCooldown;
     [SerializeField] private EnumTools currTool;
-    [SerializeField] private TextMeshProUGUI toolText;
+    [SerializeField] private Image toolUI;
+    [SerializeField] private Sprite[] axeIcons;
+    [SerializeField] private Sprite[] swordIcons;
+    [SerializeField] private Sprite scytheIcon;
+    [SerializeField] private Animator effectAnim;
 
     private GameManager gameManager;
 
@@ -29,7 +34,7 @@ public class PlayerAttack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        toolText.text = currTool.ToString();
+
     }
 
     public void Attack()
@@ -51,6 +56,7 @@ public class PlayerAttack : MonoBehaviour
         {
             canAttack = false;
             isAttacking = true;
+            effectAnim.SetTrigger(AnimationStrings.attack);
 
             foreach (RaycastHit2D hit in hits)
             {
@@ -70,14 +76,17 @@ public class PlayerAttack : MonoBehaviour
         if (currTool == EnumTools.Axe)
         {
             currTool = EnumTools.Scythe;
+            toolUI.sprite = scytheIcon;
         }
         else if (currTool == EnumTools.Scythe)
         {
             currTool = EnumTools.Sword;
+            toolUI.sprite = swordIcons[gameManager.currData.swordLevel - 1];
         }
         else if (currTool == EnumTools.Sword)
         {
             currTool = EnumTools.Axe;
+            toolUI.sprite = axeIcons[gameManager.currData.axeLevel - 1];
         }
     }
 
@@ -86,14 +95,17 @@ public class PlayerAttack : MonoBehaviour
         if (currTool == EnumTools.Axe)
         {
             currTool = EnumTools.Sword;
+            toolUI.sprite = swordIcons[gameManager.currData.swordLevel - 1];
         }
         else if (currTool == EnumTools.Scythe)
         {
             currTool = EnumTools.Axe;
+            toolUI.sprite = axeIcons[gameManager.currData.axeLevel - 1];
         }
         else if (currTool == EnumTools.Sword)
         {
             currTool = EnumTools.Scythe;
+            toolUI.sprite = scytheIcon;
         }
     }
     public int CurrToolLevel()

@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
     [SerializeField] private float currHealth;
     [SerializeField] private float maxHealth;
-    [SerializeField] private TextMeshProUGUI healthText;
+    [SerializeField] private Image healthbar;
 
     private GameManager gameManager;
 
@@ -38,7 +39,7 @@ public class PlayerHealth : MonoBehaviour
 
     private void UpdateHealthUI()
     {
-        healthText.text = "Health: " + (int)currHealth + "/" + (int)maxHealth;
+        healthbar.fillAmount = currHealth / maxHealth;
     }
 
     public void TakeDamage(float val)

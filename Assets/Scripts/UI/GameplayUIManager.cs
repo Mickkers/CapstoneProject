@@ -7,7 +7,6 @@ public class GameplayUIManager : MonoBehaviour
 {
     [SerializeField] private TMP_Text monthDate;
     [SerializeField] private TMP_Text time;
-    [SerializeField] private TMP_Text money;
     [SerializeField] private TMP_Text resources;
 
     private GameManager gameManager;
@@ -28,7 +27,6 @@ public class GameplayUIManager : MonoBehaviour
     {
         monthDate.text = gameManager.GetDate().ToString();
         time.text = gameManager.GetTime();
-        money.text = gameManager.GetMoney().ToString();
-        resources.text = "Wood: " + gameManager.GetWood() + " Leather: " + gameManager.GetLeather();
+        resources.text = "Money: \n" + gameManager.GetMoney() + "\nWood: \n" + gameManager.GetWood() + "\nLeather: \n" + gameManager.GetLeather();
     }
 }
