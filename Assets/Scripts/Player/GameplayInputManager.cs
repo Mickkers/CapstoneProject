@@ -11,6 +11,7 @@ public class GameplayInputManager : MonoBehaviour
     private PlayerMovement playerMovement;
     private PlayerInteract playerInteract;
     private PlayerAttack playerAttack;
+    private GameplayUIManager gameplayUIManager;
 
     // Start is called before the first frame update
     void Awake()
@@ -20,11 +21,13 @@ public class GameplayInputManager : MonoBehaviour
         playerMovement = GetComponent<PlayerMovement>();
         playerInteract = GetComponent<PlayerInteract>();
         playerAttack = GetComponent<PlayerAttack>();
+        gameplayUIManager = FindObjectOfType<GameplayUIManager>();
 
         gameplay.Interact.performed += ctx => playerInteract.Interact();
         gameplay.Attack.performed += ctx => playerAttack.Attack();
         gameplay.PrevTool.performed += ctx => playerAttack.PrevTool();
         gameplay.NextTool.performed += ctx => playerAttack.NextTool();
+        gameplay.Pause.performed += ctx => gameplayUIManager.TogglePause(true);
     }
 
     private void OnEnable()
@@ -40,7 +43,7 @@ public class GameplayInputManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     void FixedUpdate()

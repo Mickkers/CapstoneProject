@@ -7,14 +7,12 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-    [SerializeField] SaveManager saveManager;
-    [SerializeField] Button newGameButton;
-    [SerializeField] Button continueGameButton;
-    [SerializeField] Button exitGameButton;
-
-    [SerializeField] Button exitButton;
-    [SerializeField] Button confirmButton;
-    [SerializeField] RectTransform confirmationPrompt;
+    [SerializeField] private SaveManager saveManager;
+    [SerializeField] private RectTransform settingsUI;
+    [SerializeField] private RectTransform mainButtons;
+    [SerializeField] private Button newGameButton;
+    [SerializeField] private Button continueGameButton;
+    [SerializeField] private Button exitGameButton;
 
     // Start is called before the first frame update
     void Start()
@@ -32,24 +30,15 @@ public class MainMenuManager : MonoBehaviour
         
     }
 
-    public void NewGame()
+    public void ToggleSettings(bool val)
     {
-        if (saveManager.SaveExists())
-        {
-            //prompt save overwrite
-            PromptOverwrite();
-        }
-        else
-        {
-            //create new save
-            CreateNewGame();
-        }
+        settingsUI.gameObject.SetActive(val);
+        mainButtons.gameObject.SetActive(!val);
     }
 
-    private void PromptOverwrite()
+    public void NewGame()
     {
-        confirmationPrompt.gameObject.SetActive(true);
-        confirmButton.gameObject.SetActive(true);
+        CreateNewGame();
     }
 
     public void CreateNewGame()
@@ -65,24 +54,6 @@ public class MainMenuManager : MonoBehaviour
 
     public void ExitGame()
     {
-        PromptExit();
-    }
-
-    private void PromptExit()
-    {
-        confirmationPrompt.gameObject.SetActive(true);
-        exitButton.gameObject.SetActive(true);
-    }
-
-    public void ConfirmExit()
-    {
         Application.Quit();
-    }
-
-    public void ConfirmReturn()
-    {
-        confirmationPrompt.gameObject.SetActive(false);
-        exitButton.gameObject.SetActive(false);
-        confirmButton.gameObject.SetActive(false);
     }
 }

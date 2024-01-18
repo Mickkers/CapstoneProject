@@ -71,6 +71,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pause"",
+                    ""type"": ""Button"",
+                    ""id"": ""21705169-d91a-4825-91ab-7264579133bb"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -269,6 +278,28 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""PrevTool"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cd8cfc69-d960-457a-8bea-0cfa14a40318"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""23c212d9-5f41-4a9c-85e2-9287b59986f7"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1019,6 +1050,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Gameplay_Interact = m_Gameplay.FindAction("Interact", throwIfNotFound: true);
         m_Gameplay_NextTool = m_Gameplay.FindAction("NextTool", throwIfNotFound: true);
         m_Gameplay_PrevTool = m_Gameplay.FindAction("PrevTool", throwIfNotFound: true);
+        m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1099,6 +1131,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Gameplay_Interact;
     private readonly InputAction m_Gameplay_NextTool;
     private readonly InputAction m_Gameplay_PrevTool;
+    private readonly InputAction m_Gameplay_Pause;
     public struct GameplayActions
     {
         private @PlayerInput m_Wrapper;
@@ -1108,6 +1141,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Interact => m_Wrapper.m_Gameplay_Interact;
         public InputAction @NextTool => m_Wrapper.m_Gameplay_NextTool;
         public InputAction @PrevTool => m_Wrapper.m_Gameplay_PrevTool;
+        public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1132,6 +1166,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @PrevTool.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPrevTool;
                 @PrevTool.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPrevTool;
                 @PrevTool.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPrevTool;
+                @Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                @Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
+                @Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -1151,6 +1188,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @PrevTool.started += instance.OnPrevTool;
                 @PrevTool.performed += instance.OnPrevTool;
                 @PrevTool.canceled += instance.OnPrevTool;
+                @Pause.started += instance.OnPause;
+                @Pause.performed += instance.OnPause;
+                @Pause.canceled += instance.OnPause;
             }
         }
     }
@@ -1353,6 +1393,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnInteract(InputAction.CallbackContext context);
         void OnNextTool(InputAction.CallbackContext context);
         void OnPrevTool(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

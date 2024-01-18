@@ -108,12 +108,12 @@ TextureImporter:
       name: Main Menu Button (no text)_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 705.75
-        width: 585
-        height: 235.25
+        x: 20
+        y: 715
+        width: 538
+        height: 204
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -129,12 +129,12 @@ TextureImporter:
       name: Main Menu Button (no text)_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 470.75
-        width: 585
-        height: 235.25
+        x: 21
+        y: 490
+        width: 538
+        height: 204
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -150,12 +150,12 @@ TextureImporter:
       name: Main Menu Button (no text)_2
       rect:
         serializedVersion: 2
-        x: 0
-        y: 235.75
-        width: 585
-        height: 235.25
+        x: 21
+        y: 264
+        width: 538
+        height: 204
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -171,12 +171,12 @@ TextureImporter:
       name: Main Menu Button (no text)_3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0.75
-        width: 585
-        height: 235.25
+        x: 21
+        y: 38
+        width: 538
+        height: 204
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
