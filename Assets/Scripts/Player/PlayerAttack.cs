@@ -11,12 +11,17 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private EnumTools currTool;
     [SerializeField] private TextMeshProUGUI toolText;
 
+    private GameManager gameManager;
+
     private bool canAttack;
     private bool isAttacking;
+
+    private readonly int[] toolDamage = { 1, 2, 5 };
 
     // Start is called before the first frame update
     void Start()
     {
+        gameManager = FindObjectOfType<GameManager>();
         canAttack = true;
         currTool = EnumTools.Axe;
     }
@@ -91,10 +96,22 @@ public class PlayerAttack : MonoBehaviour
             currTool = EnumTools.Scythe;
         }
     }
+    public int CurrToolLevel()
+    {
+        if (currTool == EnumTools.Axe)
+        {
+            return gameManager.currData.axeLevel;
+        }
+        else if (currTool == EnumTools.Sword)
+        {
+            return gameManager.currData.swordLevel;
+        }
+        return 1;
+    }
 
     public float GetAttackDamage()
     {
-        return 2;
+        return toolDamage[CurrToolLevel() - 1];
     }
 
     public EnumTools GetCurrTool()

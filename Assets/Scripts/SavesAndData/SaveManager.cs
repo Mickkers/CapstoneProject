@@ -14,7 +14,7 @@ public class SaveManager : MonoBehaviour
 
     private void Start()
     {
-        //Debug.Log(Path);
+        Debug.Log(Path);
         if (SaveManager.Instance is null)
         {
             return;
@@ -91,6 +91,8 @@ public class SaveManager : MonoBehaviour
 public class GameData
 {
     public int days;
+    public int sellMultiplierLevel;
+
     public int money;
     public int wood;
     public int leather;
@@ -104,6 +106,7 @@ public class GameData
     public GameData()
     {
         days = 0;
+        sellMultiplierLevel = 1;
         money = 0;
         wood = 0;
         leather = 0;

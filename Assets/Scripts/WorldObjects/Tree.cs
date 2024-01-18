@@ -34,7 +34,6 @@ public class Tree : Attackable
         if(player.GetCurrTool() == correctTool)
         {
             hp -= player.GetAttackDamage();
-            Debug.Log(hp);
         }
     }
 }

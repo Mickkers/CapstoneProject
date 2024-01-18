@@ -2,8 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class UpgradeStation : MonoBehaviour
+public class UpgradeStation : Interactible
 {
+    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -14,5 +17,9 @@ public class UpgradeStation : MonoBehaviour
     void Update()
     {
         
+    }
+    public override void Interact()
+    {
+
     }
 }

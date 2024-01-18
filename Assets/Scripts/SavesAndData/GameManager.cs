@@ -152,4 +152,27 @@ public class GameManager : MonoBehaviour
     {
         currData.wood += value;
     }
+
+    public bool IsInventoryEmpty()
+    {
+        if (currData.wayangInventory.Count == 0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    public int GetWayangValue()
+    {
+        int value = 0;
+        Wayang[] wayangs = currData.wayangInventory.ToArray();
+        foreach (Wayang wayang in wayangs)
+        {
+            value += wayang.score;
+        }
+        return value;
+    }
 }
