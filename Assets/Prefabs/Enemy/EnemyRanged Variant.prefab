@@ -148,7 +148,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 4
-  attackDamage: 1
+  attackDamage: 2
   attackCooldown: 1.5
   canAttack: 0
   player: {fileID: 0}

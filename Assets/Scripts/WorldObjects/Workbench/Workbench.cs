@@ -43,4 +43,9 @@ public class Workbench : Interactible
         WorkbenchMinigameManager wmm = Instantiate(minigameManagerPrefab, workbenchUI.transform);
         wmm.SetType(val);
     }
+
+    public void EndMinigames()
+    {
+        chooseTypeMenu.gameObject.SetActive(true);
+    }
 }

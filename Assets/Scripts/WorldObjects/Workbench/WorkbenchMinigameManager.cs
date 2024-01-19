@@ -50,7 +50,7 @@ public class WorkbenchMinigameManager : MonoBehaviour
             CraftingComplete();
             return;
         }
-        Instantiate(minigames[0], transform);
+        Instantiate(minigames[UnityEngine.Random.Range(0, minigames.Length)], transform);
     }
 
     private void CraftingComplete()
@@ -65,5 +65,15 @@ public class WorkbenchMinigameManager : MonoBehaviour
     {
         result.score += (int)val;
         NextStage();
+    }
+
+    public void EndMinigame()
+    {
+        FindObjectOfType<Workbench>().EndMinigames();
+        Destroy(this.gameObject);
+    }
+    public void CloseUI()
+    {
+        FindObjectOfType<Workbench>().CloseUI();
     }
 }

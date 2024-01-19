@@ -87,8 +87,7 @@ public class GameManager : MonoBehaviour
     public void Gameover()
     {
         SetMoney(-500);
-        NextDay();
-
+        StartCoroutine(NextDay());
     }
 
     public int GetMonth()

@@ -29,7 +29,8 @@ public class RangedEnemyAttack : EnemyAttack
 
         RangedProjectile projectile = Instantiate(projectilePrefab, transform.position, Quaternion.identity);
         projectile.damage = attackDamage;
-        projectile.direction = player.transform.position - transform.position;
+        
+        projectile.direction = Vector3.Normalize(player.transform.position - transform.position);
 
         rbody.constraints = RigidbodyConstraints2D.FreezeRotation;
         canAttack = true;
