@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4092226997437890607}
   - component: {fileID: 4092226997437890606}
   - component: {fileID: 4092226997437890605}
-  - component: {fileID: 4092226997437890604}
   - component: {fileID: 4092226997437890771}
   - component: {fileID: 4092226997437890770}
+  - component: {fileID: 279464868}
   m_Layer: 0
   m_Name: RangedProjectile
   m_TagString: Untagged
@@ -30,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4092226997437890769}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.1760315, y: 0.14910667, z: 0}
-  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 0}
@@ -74,10 +74,10 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1461809923
-  m_SortingLayer: 4
-  m_SortingOrder: 10
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_SortingLayerID: 85115495
+  m_SortingLayer: 5
+  m_SortingOrder: 1
+  m_Sprite: {fileID: -2010702546, guid: aeb8aa136e396304399d73eb90fb139e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -100,26 +100,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 252269b5c3b14684f943377184d871e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
-  lifeTime: 4
+  moveSpeed: 4
+  lifeTime: 10
   damage: 0
   direction: {x: 0, y: 0, z: 0}
---- !u!58 &4092226997437890604
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4092226997437890769}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.49999997
 --- !u!50 &4092226997437890771
 Rigidbody2D:
   serializedVersion: 4
@@ -156,4 +140,30 @@ MonoBehaviour:
   moveSpeed: 0.3
   lifeTime: 4
   damage: 0
-  direction: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 3, z: 0}
+--- !u!61 &279464868
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4092226997437890769}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.037870944, y: 0.022898734}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 1, y: 1}
+    newSize: {x: 1, y: 1}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.72425807, y: 0.14147007}
+  m_EdgeRadius: 0

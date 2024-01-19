@@ -37,7 +37,11 @@ public class RangedProjectile : MonoBehaviour
 
     private void Move()
     {
-        transform.Translate(direction.normalized * moveSpeed * Time.fixedDeltaTime);
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+
+        transform.rotation = Quaternion.Euler(new Vector3(0, 0, angle));
+
+        rbody.velocity = direction.normalized * moveSpeed;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
